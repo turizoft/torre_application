@@ -1,0 +1,88 @@
+@layer components {
+  .tw-section {
+    @apply pt-12 pb-8 border-b border-gray-300;
+
+    @screen lg {
+      @apply pb-0 border-none;
+    }
+  }
+
+  .tw-container {
+    @apply w-full mx-auto px-6;
+
+    @screen lg {
+      @apply max-w-screen-lg px-8;
+    }
+
+    @screen xl {
+    @apply max-w-screen-xl;
+    }
+  }
+
+  // buttons
+  .tw-btn {
+    @apply rounded-md flex items-center justify-center text-base leading-6 transition duration-150 ease-in-out cursor-pointer;
+  }
+
+  .tw-btn--primary {
+    @apply bg-primary-500 shadow;
+    color: var(--c-primary-button-text);
+
+    &:hover {
+      @apply bg-primary-400;
+    }
+  }
+
+  .tw-btn--secondary {
+    @apply bg-primary-100 text-primary-500;
+
+    &:hover {
+      @apply bg-primary-200 text-primary-600;
+    }
+  }
+
+  .tw-btn--gray {
+    @apply bg-gray-200 text-gray-600;
+
+    &:hover {
+      @apply bg-gray-300 text-gray-800;
+    }
+  }
+
+  .tw-btn--transparent {
+    @apply bg-transparent text-gray-800;
+
+    &:hover {
+      @apply bg-gray-200;
+    }
+  }
+
+  .tw-btn--md {
+    @apply px-6 py-2;
+  }
+
+  .tw-btn--lg {
+    @apply px-6 py-2;
+
+    @screen md {
+      @apply px-8 py-3;
+    }
+  }
+
+  .tw-btn--xl {
+    @apply px-8 py-3;
+
+    @screen md {
+      @apply px-10 py-4 text-lg;
+    }
+  }
+
+  // text fields
+  .tw-text-field {
+    @apply rounded-md appearance-none block w-full leading-6 text-gray-700 bg-white bg-opacity-75 border border-gray-400 px-4 py-2;
+
+    &:focus {
+      @apply bg-opacity-100;
+    }
+  }
+}

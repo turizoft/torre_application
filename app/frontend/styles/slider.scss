@@ -1,0 +1,49 @@
+$slider-sc: 3; // number of slides
+$slide-duration: 40s;
+$slider-df: 0.85; // slider image decay factor
+$slider-zf: 1.05; // slider image zoom factor
+$slider-izf: 1 + (1 - $slider-df) * ($slider-zf - 1); // zoom factor when opacity reaches its peak for the first time
+
+@for $i from 1 through $slider-sc {
+  @keyframes fade-#{$i}
+  {
+    @for $j from 0 through $slider-sc {
+      #{percentage($j / $slider-sc)} {
+        @if $j + 1 == $i or ($j == $slider-sc and $i == 1) {
+          opacity: 1;
+          transform: scale($slider-izf, $slider-izf);
+        } @else {
+          opacity: 0;
+          transform: scale($slider-zf, $slider-zf);
+        }
+      }
+    }
+    #{percentage(($i - 1 + $slider-df) / $slider-sc)} { opacity: 1; }
+    #{percentage((if($i > 1, $i - 2, $slider-sc - 1) + $slider-df) / $slider-sc)} { opacity: 0; transform: scale(1, 1); }
+  }
+}
+
+.fading-slider {
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
+
+  @for $i from 1 through $slider-sc {
+    .fading-slide-#{$i} {
+      animation: fade-#{$i} $slide-duration linear infinite;
+    }
+  }
+
+  & > div {
+    background-size: cover !important;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

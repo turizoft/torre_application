@@ -1,0 +1,39 @@
+<div class="pt-16 flex-1">
+  <div class="relative overflow-hidden">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="bg-gray-800 relative z-10 py-16 md:py-24 lg:max-w-2xl lg:w-full lg:py-28 xl:py-32">
+        <!-- diagonal shape -->
+        <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-24 text-gray-800 transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <polygon points="0,0 100,0 50,100 0,100"/>
+        </svg>
+
+        <!-- tagline and call to action -->
+        <header class="mx-auto max-w-screen-xl px-6 lg:px-8">
+          <div class="md:text-center lg:text-left">
+            <h2 class="relative z-10 tracking-tight leading-tight font-bold text-white text-4xl md:text-5xl md:leading-tighter">
+              Build your dream team
+              <div class="inline md:block text-gray-300">from Torre.co</div>
+            </h2>
+            <p class="mt-4 text-gray-200 md:mt-5 md:text-lg md:max-w-xl md:mx-auto md:mt-5 md:text-xl lg:mx-0">
+              Find your next hires or project team members and discover how they play together.
+            </p>
+            <div class="mt-5 md:mt-8 md:flex md:justify-center lg:justify-start">
+              <button type="button" class="tw-btn tw-btn--primary tw-btn--xl">
+                Add a team member
+              </button>
+            </div>
+          </div>
+        </header>
+      </div>
+    </div>
+
+    <!-- slider -->
+    <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+      <div class="fading-slider">
+        <div class="fading-slide-1" style="background-image: url(<%= asset_pack_path 'media/images/site/slider1.jpg' %>);"></div>
+        <div class="fading-slide-2" style="background-image: url(<%= asset_pack_path 'media/images/site/slider2.jpg' %>);"></div>
+        <div class="fading-slide-3" style="background-image: url(<%= asset_pack_path 'media/images/site/slider3.jpg' %>);"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "parser": "babel-eslint",
+    "sourceType": "module"
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "parser": "vue-eslint-parser",
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-console": "warn",
+    "no-use-before-define": "warn",
+    "vue/prop-name-casing": ["error", "snake_case"],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "never"
+    }],
+    "curly": "error",
+    "default-case-last": "error",
+    "dot-location": ["error", "property"],
+    "eqeqeq": ["error", "smart"],
+    "max-classes-per-file": ["error", 1],
+    "no-alert": "error",
+    "yoda": ["error", "never", { "exceptRange": true }]
+  },
+  "extends": [
+    "plugin:vue/recommended",
+    "eslint:recommended",
+    "prettier/vue",
+    "plugin:prettier/recommended"
+  ],
+  "globals": {
+    "gon": "readonly"
+  }
+}

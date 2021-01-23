@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Teambuilder</title>
+    <title>Torre Team Builder - Build your dream team from Torre.co</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'screen', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="h-screen bg-gray-800">
     <%= yield %>
   </body>
 </html>
