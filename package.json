@@ -10,7 +10,20 @@
     "autoprefixer": "^9",
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "dayjs": "^1.8.28",
+    "debounce": "^1.2.0",
+    "nprogress": "^0.2.0",
+    "rails-erb-loader": "^5.5.2",
+    "uuid": "^8.3.0",
+    "v-click-outside": "^3.1.2",
+    "vue": "^2.6.11",
+    "vue-draggable": "^2.0.6",
+    "vue-fragment": "^1.5.1",
+    "vue-loader": "^15.9.3",
+    "vue-local-scope": "^0.0.1",
+    "vue-template-compiler": "^2.6.11",
+    "vue2-touch-events": "^2.2.1"
   },
   "version": "0.1.0",
   "devDependencies": {
