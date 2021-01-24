@@ -20,8 +20,14 @@ export class TeamsNewApp extends Vue {
       methods: {
         addTeamMember(member) {
           if (!this.team.find(({ username }) => username === member.username)) {
-            this.team.unshift(member);
+            setTimeout(() => {
+              this.team.unshift(member);
+            }, 0);
           }
+        },
+
+        deleteTeamMember(member) {
+          this.team = this.team.filter(({ username }) => username !== member.username);
         },
       },
     });

@@ -1,6 +1,6 @@
 <script>
 import { debounce } from 'debounce';
-import { addUUIDToCollection } from 'scripts/base/helpers';
+import { addUUIDToCollection } from 'scripts/helpers/helpers';
 import vClickOutside from 'v-click-outside';
 import BaseImage from 'scripts/components/base_image';
 

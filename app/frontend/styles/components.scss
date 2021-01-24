@@ -18,6 +18,10 @@
   // buttons
   .tw-btn {
     @apply rounded-md flex items-center justify-center text-base leading-6 transition duration-150 ease-in-out cursor-pointer;
+
+    &:focus {
+      @apply outline-none ring;
+    }
   }
 
   .tw-btn--primary {
@@ -38,10 +42,10 @@
   }
 
   .tw-btn--gray {
-    @apply bg-gray-200 text-gray-600;
+    @apply bg-gray-600 text-gray-200;
 
     &:hover {
-      @apply bg-gray-300 text-gray-800;
+      @apply bg-gray-500 text-white;
     }
   }
 
