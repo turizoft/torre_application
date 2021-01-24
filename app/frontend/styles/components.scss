@@ -82,7 +82,16 @@
     @apply rounded-md appearance-none block w-full leading-6 text-gray-700 bg-white bg-opacity-75 border border-gray-400 px-4 py-2;
 
     &:focus {
-      @apply bg-opacity-100;
+      @apply outline-none bg-opacity-100;
+    }
+  }
+
+  // blank state
+  .tw-blank-state {
+    @apply p-8 text-center border border-gray-400 border-dashed rounded-md flex flex-col items-center justify-center;
+
+    @screen lg {
+      @apply px-16;
     }
   }
 }

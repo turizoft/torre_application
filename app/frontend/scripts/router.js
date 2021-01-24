@@ -1,8 +1,10 @@
 import Vue from 'vue/dist/vue.esm';
 import { SiteIndexApp } from 'scripts/apps/site/index.app';
+import { TeamsNewApp } from 'scripts/apps/teams/new.app';
 
 const routes = {
   site_index: SiteIndexApp,
+  teams_new: TeamsNewApp,
 };
 
 export const initializeRoutes = () => {

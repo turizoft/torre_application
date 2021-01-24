@@ -1,0 +1,33 @@
+<div
+  class="tw-section"
+  data-route="teams_new"
+>
+  <div class="tw-container mt-8 md:mt-16">
+    <div class="text-xl md:text-3xl text-white mb-4 md:mb-6">
+      Build your team
+    </div>
+
+    <div class="lg:grid lg:grid-cols-5 lg:gap-8">
+      <div class="col-span-2">
+        <search-box
+          placeholder="Search people"
+          remote_route="https://search.torre.co/people/_search"
+        ></search-box>
+      </div>
+
+      <div class="mt-8 lg:mt-0 lg:col-span-3">
+        <div class="tw-blank-state h-full">
+          <div class="leading-tight text-gray-300 mb-8 text-lg">You haven't added any team member yet.</div>
+
+          <div class="mx-auto">
+            <%= svg_icon 'bx-network-chart', size: '48', class: 'text-gray-500' %>
+          </div>
+
+          <div class="leading-tight text-gray-400 text-sm mt-8">
+            Search people and add them to the team to know how well will they work together.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
