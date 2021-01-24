@@ -133,7 +133,7 @@ export default {
     <!-- menu -->
     <div class="relative flex-1">
       <div
-        class="absolute min-w-full mt-2 transform shadow-md rounded-md scrollbar-sm"
+        class="absolute w-full mt-2 transform shadow-md rounded-md scrollbar-sm"
         :class="[
           open && can_search && (!searching || results.length)
             ? 'transition ease-in duration-200 opacity-100 translate-y-0 z-10'
@@ -141,7 +141,7 @@ export default {
         ]"
       >
         <div
-          class="w-full h-full overflow-y-auto max-h-48 bg-light-1000 rounded-md shadow-xs border border-white-1000 border-opacity-25"
+          class="w-full h-full overflow-y-auto max-h-64 bg-gray-800 rounded-md shadow-xs border border-white border-opacity-25"
         >
           <!-- no results state -->
           <template v-if="can_search">
@@ -153,7 +153,7 @@ export default {
             </div>
 
             <!-- results -->
-            <ul v-else class="h-full">
+            <ul v-else class="h-full w-full">
               <li
                 v-for="result in results"
                 :key="result.uuid"
@@ -161,17 +161,16 @@ export default {
                 role="option"
                 @click="onSelectResult(result)"
               >
-                <div>
+                <base-image
+                  class="relative block w-8 h-8 rounded-full overflow-hidden object-cover object-center flex-shrink-0 mr-4"
+                  :src="result.picture"
+                ></base-image>
+                <div class="flex-1 overflow-x-hidden">
                   <div class="text-white leading-snug text-ellipsis">{{ result.name }}</div>
-                  <div v-if="result.professionalHeadline" class="text-gray-500 leading-snug text-ellipsis text-sm">
+                  <div v-if="result.professionalHeadline" class="text-gray-400 leading-snug text-ellipsis text-sm">
                     {{ result.professionalHeadline }}
                   </div>
                 </div>
-                <base-image
-                  class="relative block w-8 h-8 rounded-full overflow-hidden"
-                  image_class="object-cover object-center"
-                  :src="result.picture"
-                ></base-image>
               </li>
             </ul>
           </template>

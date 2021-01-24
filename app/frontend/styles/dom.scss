@@ -1,0 +1,50 @@
+@layer utilities {
+  .disabled, :disabled, .soft-disabled {
+    cursor: default !important;
+    pointer-events: none !important;
+    user-select: none;
+  }
+
+  .disabled, :disabled {
+    opacity: 0.45 !important;
+  }
+
+  .text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .scrollbar-sm {
+    @screen lg {
+      // Webkit based
+      ::-webkit-scrollbar {
+        width: 0.6rem !important;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1) !important;
+        border-radius: 0.3rem !important;
+      }
+
+      ::-webkit-scrollbar-track-piece {
+
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.1) !important;
+        border-radius: 0.3rem !important;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.25) !important;
+      }
+
+      // Firefox
+      * {
+        scrollbar-color: rgba(255, 255, 255, 0.25) rgba(0, 0, 0, 0.1);
+        scrollbar-width: thin;
+      }
+    }
+  }
+}
