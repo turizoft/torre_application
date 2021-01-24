@@ -157,7 +157,7 @@ export default {
               <li
                 v-for="result in results"
                 :key="result.uuid"
-                class="tw-menu-item tw-menu-item--md text-sm cursor-pointer"
+                class="tw-menu-item tw-menu-item--md text-sm"
                 role="option"
                 @click="onSelectResult(result)"
               >

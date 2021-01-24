@@ -1,0 +1,46 @@
+[v-cloak] {
+  &:not(.v-cloak-opacity) {
+    display: none !important;
+  }
+
+  &.v-cloak-opacity {
+    opacity: 0;
+  }
+}
+
+.v-left-animable-list-item, .v-right-animable-list-item {
+  transition: 600ms all ease-in-out;
+}
+
+.v-left-animable-list-leave-active, .v-right-animable-list-leave-active {
+  position: absolute;
+}
+
+.v-left-animable-list-enter, .v-left-animable-list-leave-to,
+.v-right-animable-list-enter, .v-right-animable-list-leave-to {
+  opacity: 0;
+}
+
+.v-left-animable-list-enter, .v-left-animable-list-leave-to {
+  transform: translateX(-100%);
+}
+
+.v-right-animable-list-enter, .v-right-animable-list-leave-to {
+  transform: translateX(100%);
+}
+
+.v-fade-enter-active, .v-fade-leave-active {
+  transition: opacity 600ms ease-in-out;
+}
+
+.v-fade-enter, .v-fade-leave-to {
+  opacity: 0;
+}
+
+.v-fade-fast-enter-active, .v-fade-fast-leave-active {
+  transition: opacity 250ms ease-in-out;
+}
+
+.v-fade-fast-enter, .v-fade-fast-leave-to {
+  opacity: 0;
+}

@@ -1,10 +1,6 @@
 @layer components {
   .tw-section {
-    @apply pt-12 pb-8 border-b border-gray-300;
-
-    @screen lg {
-      @apply pb-0 border-none;
-    }
+    @apply pt-12 pb-8;
   }
 
   .tw-container {
@@ -79,7 +75,7 @@
 
   // text fields
   .tw-text-field {
-    @apply rounded-md appearance-none block w-full leading-6 text-gray-700 bg-white bg-opacity-75 border border-gray-400 px-4 py-2;
+    @apply rounded-md appearance-none block w-full leading-6 text-gray-700 bg-white bg-opacity-90 border border-gray-400 px-4 py-2;
 
     &:focus {
       @apply outline-none bg-opacity-100;
@@ -88,7 +84,7 @@
 
   // blank state
   .tw-blank-state {
-    @apply p-8 text-center border border-gray-400 border-dashed rounded-md flex flex-col items-center justify-center;
+    @apply p-8 text-center bg-gray-700 rounded-md flex flex-col items-center justify-center;
 
     @screen lg {
       @apply px-16;
