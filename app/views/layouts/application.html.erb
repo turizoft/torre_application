@@ -11,10 +11,14 @@
   </head>
 
   <body class="h-screen bg-gray-800">
-    <div id="app-root" class="h-full">
+    <div id="app-root" class="h-full flex flex-col">
       <%= render 'shared/navbar' %>
 
-      <%= yield %>
+      <div class="flex-1">
+        <%= yield %>
+      </div>
+
+      <%= render 'shared/footer' %>
     </div>
 
     <%= Gon::Base.render_data %>

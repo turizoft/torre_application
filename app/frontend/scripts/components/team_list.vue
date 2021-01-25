@@ -23,7 +23,7 @@ export default {
 
 <template>
   <transition-group tag="div" name="v-left-animable-list">
-    <div v-for="member in team" :key="member.username" class="tw-menu-item tw-menu-item--md v-left-animable-list-item">
+    <div v-for="member in team" :key="member.username" class="flex items-center px-4 py-2 v-left-animable-list-item">
       <base-image
         class="relative block w-12 h-12 rounded-full overflow-hidden object-cover object-center flex-shrink-0 mr-4"
         :src="member.picture"

@@ -1,5 +1,11 @@
-<div class="fixed bg-gray-900 z-50 h-16 border-b border-gray-400 w-full">
-  <div class="tw-container">
-    <div class="text-white">TeamBuilder</div>
+<div
+  id="navbar"
+  class="fixed bg-gray-900 z-50 h-16 border-b border-gray-400 w-full"
+  data-turbolinks-permanent
+>
+  <div class="tw-container flex h-full items-center justify-center">
+    <%= link_to root_path do %>
+      <%= image_pack_tag 'media/images/logo.svg', alt: 'Torre team builder', class: 'h-10 w-auto' %>
+    <% end %>
   </div>
 </div>
