@@ -1,11 +1,5 @@
 <script>
-import BaseImage from 'scripts/components/base_image';
-
 export default {
-  components: {
-    'base-image': BaseImage,
-  },
-
   props: {
     team: { type: Array, required: true },
   },

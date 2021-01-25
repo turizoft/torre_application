@@ -1,4 +1,5 @@
 <script>
+import Vue from 'vue/dist/vue.esm';
 import { debounce } from 'debounce';
 import { addUUIDToCollection } from 'scripts/helpers/helpers';
 import vClickOutside from 'v-click-outside';
@@ -52,18 +53,22 @@ export default {
     },
 
     searchRemotely: debounce(async function (query) {
-      const payload = {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: `{"name":{"term":"${query}"}}`,
-      };
-      const response = await fetch(this.remote_route, payload);
-      const data = await response.json();
-      this.results = data.results;
-      addUUIDToCollection(this.results);
-      this.searching = false;
+      try {
+        const request_options = {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name: { term: query } }),
+        };
+        const response = await fetch(this.remote_route, request_options);
+        const data = await response.json();
+        this.results = data.results;
+        addUUIDToCollection(this.results);
+        this.searching = false;
+      } catch {
+        Vue.$toast.open({ message: 'Error while performing search', type: 'error', position: 'top' });
+      }
     }, 600),
 
     onSelectResult(result) {
