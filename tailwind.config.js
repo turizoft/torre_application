@@ -45,6 +45,12 @@ module.exports = {
         10: '2.5rem',
         12: '3rem',
       },
+      minHeight: {
+        0: '0',
+        96: '24rem',
+        full: '100%',
+        screen: '100vh',
+      },
     },
   },
   variants: {

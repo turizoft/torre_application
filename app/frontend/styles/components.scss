@@ -111,4 +111,9 @@
   .tw-menu-item--md {
     @apply px-4 py-2;
   }
+
+  // tag
+  .tw-tag-label {
+    @apply leading-tight text-white text-xs bg-gray-500 px-2 py-1 rounded-md text-ellipsis;
+  }
 }

@@ -1,6 +1,5 @@
 <script>
 import BaseImage from 'scripts/components/base_image';
-import { vueEditableProp } from 'scripts/helpers/helpers';
 
 export default {
   components: {
@@ -11,10 +10,6 @@ export default {
     team: { type: Array, required: true },
     editable: Boolean,
     on_delete_team_member: { type: Function, default: undefined },
-  },
-
-  computed: {
-    editable_team: vueEditableProp('team'),
   },
 
   methods: {

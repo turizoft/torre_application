@@ -11,14 +11,27 @@
       <div class="col-span-2">
         <search-box
           placeholder="Search people to add"
-          remote_route="https://search.torre.co/people/_search"
+          :remote_route="search_endpoint"
           :on_select_result="addTeamMember"
+          :disabled="loading"
         ></search-box>
 
         <transition mode="out-in" name="v-fade">
           <div v-if="team.length" key="content-when-team-exist">
-            <h3 class="text-gray-200 text-lg md:text-xl mt-6 leading-tight">The team</h3>
-            <div class="text-gray-400 leading-tight"> {{ team.length }} member{{ team.length > 1 ? 's' : '' }}</div>
+            <div class="flex items-center mt-6">
+              <div class="flex-1 mr-4">
+                <h3 class="text-gray-200 text-lg md:text-xl leading-tight">The team</h3>
+                <div class="text-gray-400 leading-tight"> {{ team.length }} member{{ team.length > 1 ? 's' : '' }}</div>
+              </div>
+
+              <button
+                type="button"
+                class="tw-btn tw-btn--primary tw-btn--md rounded-full flex-shrink-0"
+                :disabled="loading"
+              >
+                Save and finish
+              </button>
+            </div>
 
             <team-list
               class="mt-4"
@@ -26,12 +39,6 @@
               :on_delete_team_member="deleteTeamMember"
               editable
             ></team-list>
-
-            <div class="mt-4 md:mt-8">
-              <button type="button" class="tw-btn tw-btn--primary tw-btn--lg w-full w-full sm:w-auto">
-                Save team
-              </button>
-            </div>
           </div>
 
           <div v-else class="tw-blank-state mt-4" key="content-when-team-is-empty">
@@ -46,18 +53,41 @@
         </transition>
       </div>
 
-      <div class="hidden md:block mt-4 lg:mt-0 lg:col-span-3">
-        <div class="tw-blank-state py-16">
-          <div class="leading-tight text-gray-300 mb-8 text-lg">You haven't added any team member yet.</div>
+      <div class="hidden md:block mt-4 lg:mt-0 lg:col-span-3 md:pl-8 md:border-l md:border-gray-700">
+        <transition mode="out-in" name="v-fade">
+          <div v-if="team.length" key="content-when-team-exist">
+            <h3 class="text-primary-500 text-lg md:text-2xl leading-tight mb-8">
+              How does this team play?
+            </h3>
 
-          <div class="mx-auto">
-            <%= svg_icon 'bx-bar-chart', size: '80', class: 'text-gray-500' %>
+            <div>
+              <transition mode="out-in" name="v-fade">
+                <div
+                  v-if="loading"
+                  class="bg-gray-900 flex flex-col items-center justify-center rounded-md min-h-96 w-full"
+                >
+                  <div class="text-gray-200 text-lg mb-16 animate-pulse">Updating report</div>
+                  <helix-loader></helix-loader>
+                  <div class="text-gray-400 mt-16 animate-pulse">Mixing genome</div>
+                </div>
+
+                <team-report v-else :team="team"></team-report>
+              </transition>
+            </div>
           </div>
 
-          <div class="leading-tight text-gray-400 text-sm mt-8">
-            Your team chemistry report will be displayed here.
+          <div v-else class="tw-blank-state py-16" key="content-when-team-is-empty">
+            <div class="leading-tight text-gray-300 mb-8 text-lg">You haven't added any team member yet.</div>
+
+            <div class="mx-auto">
+              <%= svg_icon 'bx-bar-chart', size: '80', class: 'text-gray-500' %>
+            </div>
+
+            <div class="leading-tight text-gray-400 text-sm mt-8">
+              Your team chemistry report will be displayed here.
+            </div>
           </div>
-        </div>
+        </transition>
       </div>
     </div>
   </div>
