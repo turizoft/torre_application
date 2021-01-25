@@ -4,6 +4,7 @@ import Turbolinks from 'turbolinks';
 import { initializeRoutes } from 'scripts/router';
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
+import 'scripts/config/nprogress';
 
 require.context('../images', true);
 
