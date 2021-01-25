@@ -22,7 +22,7 @@ export class TeamsNewApp extends Vue {
         team: [],
         loading: false,
         search_endpoint: 'https://search.torre.co/people/_search',
-        member_endpoint: 'https://bio.torre.co/api/bios',
+        member_endpoint: '/api/bios',
         max_team_size: 20,
       },
 
@@ -37,10 +37,10 @@ export class TeamsNewApp extends Vue {
       methods: {
         addTeamMember(member) {
           if (!this.team.find(({ username }) => username === member.username)) {
-            setTimeout(() => {
+            setTimeout(async () => {
               this.team.unshift({ ...member, loaded: false });
               this.loading = true;
-              this.fetchTeamMemberData(member);
+              await this.fetchTeamMemberData(member);
               this.loading = false;
             }, 0);
           }
@@ -51,7 +51,11 @@ export class TeamsNewApp extends Vue {
         },
 
         async fetchTeamMemberData(member) {
-          const data = await fetch(`${this.member_endpoint}/${member.username}`);
+          try {
+            const data = await fetch(`${this.member_endpoint}/${member.username}`);
+          } catch {
+
+          }
         },
 
         async saveTeam() {

@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :teams, only: :create
+    resources :bios, only: :show
   end
 end
