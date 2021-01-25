@@ -23,9 +23,16 @@ export class TeamsNewApp extends Vue {
         loading: false,
         search_endpoint: 'https://search.torre.co/people/_search',
         member_endpoint: 'https://bio.torre.co/api/bios',
+        max_team_size: 20,
       },
 
       mixins: [useBaseApp()],
+
+      computed: {
+        can_add_more_team_members() {
+          return this.team.length < this.max_team_size;
+        },
+      },
 
       methods: {
         addTeamMember(member) {
@@ -51,15 +58,18 @@ export class TeamsNewApp extends Vue {
           try {
             NProgress.start();
             const member_ids = this.team.map(({ username }) => username);
-            const member_names = this.team.map(({ name }) => name).join(', ');
-            const description = `Check my dream team on Torre.co: ${member_names}`;
+            const description = this.team.map(({ name }) => name).join(', ');
+            const cached_images = this.team
+              .map(({ picture }) => picture)
+              .filter(Boolean)
+              .slice(0, 3);
             const request_options = {
               method: 'post',
               headers: {
                 'Content-Type': 'application/json',
                 'X-CSRF-Token': Rails.csrfToken(),
               },
-              body: JSON.stringify({ team: { member_ids, description } }),
+              body: JSON.stringify({ team: { member_ids, description, cached_images } }),
             };
             const response = await fetch('/api/teams', request_options);
             const data = await response.json();

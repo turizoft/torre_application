@@ -8,8 +8,9 @@ export default {
 
   props: {
     team: { type: Array, required: true },
-    editable: Boolean,
     on_delete_team_member: { type: Function, default: undefined },
+    editable: Boolean,
+    disabled: Boolean,
   },
 
   methods: {
@@ -37,6 +38,7 @@ export default {
         v-if="editable"
         type="button"
         class="tw-btn tw-btn--gray rounded-full p-2 ml-4 flex-shrink-0"
+        :disabled="disabled"
         @click="deleteTeamMember(member)"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" class="fill-current">

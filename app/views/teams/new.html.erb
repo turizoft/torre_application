@@ -7,13 +7,13 @@
       Build your team
     </h2>
 
-    <div class="lg:grid lg:grid-cols-5 lg:gap-8">
+    <div v-cloak class="lg:grid lg:grid-cols-5 lg:gap-8">
       <div class="col-span-2">
         <search-box
           placeholder="Search people to add"
           :remote_route="search_endpoint"
           :on_select_result="addTeamMember"
-          :disabled="loading"
+          :disabled="loading || !can_add_more_team_members"
         ></search-box>
 
         <transition mode="out-in" name="v-fade">
@@ -21,7 +21,7 @@
             <div class="flex items-center mt-6">
               <div class="flex-1 mr-4">
                 <h3 class="text-gray-200 text-lg md:text-xl leading-tight">The team</h3>
-                <div class="text-gray-400 leading-tight"> {{ team.length }}/20 member{{ team.length > 1 ? 's' : '' }}</div>
+                <div class="text-gray-400 leading-tight"> {{ team.length }}/{{ max_team_size }} members</div>
               </div>
 
               <button
@@ -38,6 +38,7 @@
               class="mt-4"
               :team="team"
               :on_delete_team_member="deleteTeamMember"
+              :disabled="loading"
               editable
             ></team-list>
           </div>
@@ -57,7 +58,7 @@
       <div class="mt-8 lg:mt-0 lg:col-span-3 pt-8 md:pt-0 md:pl-8 border-t md:border-t-0 md:border-l border-gray-700">
         <transition mode="out-in" name="v-fade">
           <div v-if="team.length" key="content-when-team-exist">
-            <h3 class="text-primary-500 text-xl md:text-2xl leading-tight mb-8">
+            <h3 class="text-primary-500 text-xl md:text-2xl leading-tight mb-6">
               How does this team play?
             </h3>
 

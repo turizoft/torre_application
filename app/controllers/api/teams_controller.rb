@@ -11,7 +11,8 @@ class Api::TeamsController < ApplicationController
       .require(:team)
       .permit(
         :description,
-        member_ids: []
+        member_ids: [],
+        cached_images: []
       )
   end
 end

@@ -38,7 +38,8 @@ export default {
   <div class="">
     <div class="text-gray-100 text-lg leading-tight mb-4">Team skills coverage</div>
 
-    <div class="flex flex-wrap items-center -mb-1">
+    <!-- skills -->
+    <div v-if="team_skills.length" class="flex flex-wrap items-center -mb-1">
       <div
         v-for="skill in team_skills"
         :key="skill.name"
@@ -47,6 +48,10 @@ export default {
       >
         {{ skill.name }}
       </div>
+    </div>
+
+    <div v-else class="text-gray-500 leading-tight text-sm">
+      None of your team members have added skills to their profiles yet.
     </div>
   </div>
 </template>

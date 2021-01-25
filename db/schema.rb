@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_01_25_052113) do
   create_table "teams", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "description", null: false
     t.string "member_ids", null: false
+    t.string "cached_images"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
