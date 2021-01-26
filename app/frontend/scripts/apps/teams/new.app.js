@@ -52,9 +52,22 @@ export class TeamsNewApp extends Vue {
 
         async fetchTeamMemberData(member) {
           try {
-            const data = await fetch(`${this.member_endpoint}/${member.username}`);
+            NProgress.start();
+            const response = await fetch(`${this.member_endpoint}/${member.username}`);
+            const data = await response.json();
+            Object.assign(
+              this.team.find(({ username }) => username === member.username),
+              data,
+              { loaded: true }
+            );
           } catch {
-
+            Vue.$toast.open({
+              message: `Could not fetch data for ${member.username}, and won't be included in report`,
+              type: 'error',
+              position: 'top',
+            });
+          } finally {
+            NProgress.done();
           }
         },
 
