@@ -1,0 +1,51 @@
+<div
+  class="tw-section h-full"
+  data-route="teams_show"
+>
+  <div class="tw-container pt-8 md:pt-12 relative h-full">
+    <transition mode="out-in" name="v-fade">
+      <div
+        v-if="loading"
+        class="bg-gray-900 flex flex-col items-center justify-center rounded-md h-full w-full"
+        key="content-when-loading"
+      >
+        <div class="text-gray-200 text-lg mb-16">Generating report</div>
+        <helix-loader></helix-loader>
+        <div class="text-gray-400 mt-16 animate-pulse">Mixing genome</div>
+      </div>
+
+      <div v-else class="lg:grid lg:grid-cols-5 lg:gap-8" key="content-when-loaded">
+        <div class="col-span-2">
+          <div v-if="team.length" key="content-when-team-exist">
+            <div class="flex items-center mt-6">
+              <div class="flex-1 mr-4">
+                <h3 class="text-gray-200 text-lg md:text-xl leading-tight">The team</h3>
+                <div class="text-gray-400 leading-tight"> {{ team.length }} members</div>
+              </div>
+
+              <button
+                type="button"
+                class="tw-btn tw-btn--primary tw-btn--md rounded-full flex-shrink-0"
+                @click="shareTeam"
+              >
+                Share this team<%= svg_icon 'bx-share-alt', size: '18', class: 'ml-2' %>
+              </button>
+            </div>
+
+            <team-list class="mt-4" :team="team"></team-list>
+          </div>
+        </div>
+
+        <div class="mt-8 lg:mt-0 lg:col-span-3 pt-8 md:pt-0 md:pl-8 border-t md:border-t-0 md:border-l border-gray-700">
+          <div v-if="team.length" key="content-when-team-exist">
+            <h3 class="text-primary-500 text-xl md:text-2xl leading-tight mb-6">
+              How does this team play?
+            </h3>
+
+            <team-report :team="team"></team-report>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </div>
+</div>

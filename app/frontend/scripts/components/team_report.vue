@@ -9,7 +9,7 @@ export default {
       return Object.values(
         this.team
           .filter(({ loaded }) => loaded)
-          .map(({ skills }) => skills)
+          .map(({ skills, strengths }) => skills || strengths)
           .flat()
           .reduce((m, e) => {
             m[e.name] = m[e.name] ? { ...e, frequency: m[e.name].frequency + 1 } : { ...e, frequency: 1 };
