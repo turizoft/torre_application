@@ -4858,7 +4858,7 @@ loader-runner@^2.4.0:
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.4.0.tgz#ed47066bfe534d7e84c4c7b9998c2a75607d9357"
   integrity sha512-Jsmr89RcXGIwivFY21FcRrisYZfvLMTWx5kOLc+JTxtpBOG6xML0vzbc6SEQG2FO9/4Fc3wW4LVcB5DmGflaRw==
 
-loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.3, loader-utils@^1.4.0:
+loader-utils@^1.0.1, loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.3, loader-utils@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.4.0.tgz#c579b5e34cb34b1a74edc6c1fb36bfa371d5a613"
   integrity sha512-qH0WSMBtn/oHuwjy/NucEgbx5dbxxnxup9s4PVXJUDHZBQY+s0NWA9rJf53RBnQZxfch7euUui7hpoAPvALZdA==
@@ -5418,7 +5418,7 @@ node-releases@^1.1.69:
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.70.tgz#66e0ed0273aa65666d7fe78febe7634875426a08"
   integrity sha512-Slf2s69+2/uAD79pVVQo8uSiC34+g8GWY8UH2Qtqv34ZfhYrxpYpfzs9Js9d6O0mbDmALuxaTlplnBTnSELcrw==
 
-node-sass@^4.14.1:
+node-sass@^4.11.0, node-sass@^4.14.1:
   version "4.14.1"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.14.1.tgz#99c87ec2efb7047ed638fb4c9db7f3a42e2217b5"
   integrity sha512-sjCuOlvGyCJS40R8BscF5vhVlQjNN069NtQ1gSxyK1u9iqvn6tf7O1R4GNowVZfiZUCRt5MmMs1xd+4V/7Yr0g==
@@ -7264,6 +7264,17 @@ sass-graph@2.2.5:
     scss-tokenizer "^0.2.3"
     yargs "^13.3.2"
 
+sass-loader@^7.1.0:
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-7.3.1.tgz#a5bf68a04bcea1c13ff842d747150f7ab7d0d23f"
+  integrity sha512-tuU7+zm0pTCynKYHpdqaPpe+MMTQ76I9TPZ7i4/5dZsigE350shQWe5EZNl5dBidM49TPET75tNqRbcsUZWeNA==
+  dependencies:
+    clone-deep "^4.0.1"
+    loader-utils "^1.0.1"
+    neo-async "^2.5.0"
+    pify "^4.0.1"
+    semver "^6.3.0"
+
 sass-loader@^8.0.2:
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-8.0.2.tgz#debecd8c3ce243c76454f2e8290482150380090d"
@@ -8450,6 +8461,15 @@ vue-local-scope@^0.0.1:
   resolved "https://registry.yarnpkg.com/vue-local-scope/-/vue-local-scope-0.0.1.tgz#e40cabc92876e4d36455aad3c4de38270413fe17"
   integrity sha512-HUVb4rzaH5pP8ZuuIVAzLyp+CvqCucQgCW+DNm/A5F3kKHsvIbOKuTfUSYitjmGSHTdv+OcRNX+zRDXc8CNq3w==
 
+vue-share-buttons@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/vue-share-buttons/-/vue-share-buttons-1.1.0.tgz#b0218cd16c9a3ec838757016e2409b8896109ff1"
+  integrity sha512-qtQUaj9GpCNyCHBKhzjyICC3zxBtsJk6sewjdaNFhKSCPhzDEGqI23NRnaWPYoJrcAEK0HvbnE077RKzR429iQ==
+  dependencies:
+    node-sass "^4.11.0"
+    sass-loader "^7.1.0"
+    vue "^2.6.6"
+
 vue-style-loader@^4.1.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"
@@ -8481,7 +8501,7 @@ vue2-touch-events@^2.2.1:
   resolved "https://registry.yarnpkg.com/vue2-touch-events/-/vue2-touch-events-2.3.2.tgz#585941bda540da3a1e251507fa92d9c41354d661"
   integrity sha512-OTXYvgzZsvlDFlB0WqaDXIiZulJpvf+Gp9hdGO9hZUb8j5uo0SIJbr4xQ78rPZPg7rvsXWYLmUvLVro7wy3zJw==
 
-vue@^2.6.11:
+vue@^2.6.11, vue@^2.6.6:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==

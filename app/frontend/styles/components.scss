@@ -116,4 +116,25 @@
   .tw-tag-label {
     @apply leading-tight text-white text-xs bg-gray-500 px-2 py-1 rounded-md text-ellipsis;
   }
+
+  // modals
+  .tw-modal-dimmer {
+    @apply transition ease-in-out duration-300 fixed z-50 bg-black inset-0 mt-16 bg-opacity-90 py-8 flex items-center justify-center opacity-0 pointer-events-none;
+  }
+
+  .tw-modal-dimmer--open {
+    @apply opacity-100 pointer-events-auto;
+  }
+
+  .tw-modal-content {
+    @apply bg-gray-800 w-full max-w-md shadow-lg rounded-md p-4 relative transition ease-in-out duration-300 transform;
+  }
+
+  .tw-modal-content--open {
+    @apply translate-y-0 pointer-events-auto;
+  }
+
+  .tw-modal-content--closed {
+    @apply -translate-y-8 pointer-events-none;
+  }
 }

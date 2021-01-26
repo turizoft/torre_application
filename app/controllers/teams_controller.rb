@@ -3,6 +3,6 @@ class TeamsController < ApplicationController
 
   def show
     team = Team.find(params[:id])
-    gon.push(team_member_ids: team.member_ids)
+    gon.push(team: team)
   end
 end

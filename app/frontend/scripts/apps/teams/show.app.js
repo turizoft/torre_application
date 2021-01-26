@@ -4,6 +4,7 @@ import SearchBox from 'scripts/components/search_box';
 import TeamList from 'scripts/components/team_list';
 import TeamReport from 'scripts/components/team_report';
 import HelixLoader from 'scripts/components/helix_loader';
+import ShareModal from 'scripts/components/share_modal';
 import NProgress from 'nprogress';
 
 export class TeamsShowApp extends Vue {
@@ -14,13 +15,16 @@ export class TeamsShowApp extends Vue {
         'team-list': TeamList,
         'team-report': TeamReport,
         'helix-loader': HelixLoader,
+        'share-modal': ShareModal,
       },
 
       data: {
         team: [],
-        team_member_ids: gon.team_member_ids,
+        team_member_ids: gon.team.member_ids,
+        team_description: gon.team.description,
         member_endpoint: '/api/bios',
         fetch_count: 0,
+        share_modal_open: false,
       },
 
       mixins: [useBaseApp()],
@@ -34,6 +38,10 @@ export class TeamsShowApp extends Vue {
       computed: {
         loading() {
           return this.fetch_count < this.team_member_ids.length;
+        },
+
+        team_share_description() {
+          return `I built my dream team from Torre with: ${this.team_description}. Check it out!`;
         },
       },
 
@@ -59,7 +67,9 @@ export class TeamsShowApp extends Vue {
           }
         },
 
-        async shareTeam() {},
+        async shareTeam() {
+          this.share_modal_open = true;
+        },
       },
     });
   }
