@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'inline_svg', '~> 1.7'
 # Pass data from Rails to JS
 gem 'gon', '~> 6.3.2'
+# Limit sprockets version
+gem 'sprockets', '~> 3.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -46,6 +48,8 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # Generate all favicons
+  gem 'rails_real_favicon'
 end
 
 group :test do
