@@ -30,7 +30,7 @@
                 :disabled="loading"
                 @click="saveTeam"
               >
-                Save and finish<%= svg_icon 'bx-check', size: '20', class: 'ml-2' %>
+                Save and finish<%= svg_icon 'bx-check', size: '18', class: 'ml-2' %>
               </button>
             </div>
 
@@ -55,7 +55,7 @@
         </transition>
       </div>
 
-      <div class="mt-8 lg:mt-0 lg:col-span-3 pt-8 md:pt-0 md:pl-8 border-t md:border-t-0 md:border-l border-gray-700">
+      <div class="mt-8 lg:mt-0 lg:col-span-3 pt-8 lg:pt-0 lg:pl-8 border-t lg:border-t-0 lg:border-l border-gray-700">
         <transition mode="out-in" name="v-fade">
           <div v-if="team.length" key="content-when-team-exist">
             <h3 class="text-primary-500 text-xl md:text-2xl leading-tight mb-6">

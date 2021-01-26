@@ -44,6 +44,6 @@ export default {
 
     <div class="flex-1"></div>
 
-    <a class="tw-btn tw-btn--secondary tw-btn--md mt-4 md:mt-8" :href="teamUrl(team)">View team page</a>
+    <a class="tw-btn tw-btn--secondary tw-btn--md mt-4 md:mt-8" :href="teamUrl(team)">View team</a>
   </div>
 </template>
