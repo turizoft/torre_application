@@ -10,8 +10,8 @@ class Team < ApplicationRecord
   private
 
   def validate_member_ids
-    raise 'member_ids can not be empty' if member_ids.empty?
-    raise 'member_ids number is greater than expected' if member_ids.size > 20
+    raise 'team size must be at least 2' if member_ids.size < 2
+    raise 'team size is greater than expected' if member_ids.size > 20
     raise 'member_ids can not be repeated' if member_ids.uniq.size != member_ids.size
   end
 

@@ -3,9 +3,12 @@
   data-route="teams_new"
 >
   <div class="tw-container pt-8 md:pt-12 h-full">
-    <h2 class="text-xl md:text-3xl text-white mb-4 md:mb-6">
+    <h2 class="text-xl md:text-3xl text-white">
       Build your team
     </h2>
+    <div class="text-gray-400 leading-tight text-lg mb-4 mb-4 md:mb-6">
+      Add at least two members to save it.
+    </div>
 
     <div v-cloak class="lg:grid lg:grid-cols-5 lg:gap-8">
       <div class="col-span-2">
@@ -27,7 +30,7 @@
               <button
                 type="button"
                 class="tw-btn tw-btn--primary tw-btn--md rounded-full flex-shrink-0"
-                :disabled="loading"
+                :disabled="loading || team.length < 2"
                 @click="saveTeam"
               >
                 Save and finish<%= svg_icon 'bx-check', size: '18', class: 'ml-2' %>
