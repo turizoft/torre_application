@@ -2,9 +2,18 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
   purge: {
-    content: ['./app/**/*.html.erb'],
+    content: [
+      './app/**/*.html.erb',
+      './app/helpers/**/*.rb',
+      './app/frontend/scripts/**/*.js',
+      './app/frontend/scripts/**/*.js.erb',
+      './app/frontend/scripts/**/*.vue',
+    ],
+    options: {
+      whitelistPatterns: [/^bg-gray-/],
+    },
   },
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
     extend: {
       colors: {
